@@ -18,7 +18,11 @@ if SERVER then
 
 
 
-
+local function NotifyOnServerStart()
+	MsgC( Color( 67, 239, 124 ), "[NOTIFY] ", Color( 219, 60, 54 ), "Cheater-Checker", Color( 173, 209, 244 ), " has succesfully ", Color( 255, 71, 221 ), "Loaded!")
+	MsgN(".")
+end
+hook.Add( "Initialize", "SERVERStartNotify", NotifyOnServerStart )
 
 
 //dont modify above
@@ -47,7 +51,7 @@ if SERVER then
 		end
 		print("[NOTIFY] "..ply_name.." has just connected, their ip is "..ply_ip)
 	end
-	hook.Add("PlayerConnect", "some_new_unique_name", onConnectServer)
+	hook.Add("PlayerConnect", "when_the_player_presses_connect", onConnectServer)
 
 
 
@@ -97,7 +101,7 @@ if SERVER then
 
 		end)
 	end
-	hook.Add( "PlayerInitialSpawn", "some_unique_name", onSendingClientInfo )
+	hook.Add( "PlayerInitialSpawn", "when_the_player_is_almost_in", onSendingClientInfo )
 
 
 
